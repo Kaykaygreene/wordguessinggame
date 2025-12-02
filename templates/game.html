@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+<div class="container">
+ <h1>Word Guessing Game</h1>
+
+ <p class="subtitle">Guess the letters before you run out of attempts!</p>
+
+ <div id="word-display">{{ guessedWord }}</div>
+
+<p>Attempts Left: <strong>{{ attempts }}</strong></p>
+
+ {% if message %}
+ <div id="message" class="{% if 'Great' in message %}good{% else %}bad{% endif %}">
+ {{ message }}
+ </div>
+ {% endif %}
+
+ <form method="POST" class="guess-form">
+ <input type="text" name="guess" maxlength="1" required autofocus autocomplete="off" placeholder="A">
+ <button class="btn" type="submit">Guess</button>
+ </form>
+ <a href="/start"><button class="btn">New Game</button></a>
+
+  <footer>
+ © 2025 Word Guessing Game by Karlene
+ </footer>
+</div>
+</body>
+</html>
